@@ -1,0 +1,280 @@
+Mode: prod
+Ca va append
+[0mPOST /conferences/add [32m200 [0m30.552 ms - 11[0m
+[0mPOST / [32m200 [0m14.577 ms - 11[0m
+[0mPOST / [32m200 [0m1.679 ms - 11[0m
+[0mGET //webfig/ [33m404 [0m2.198 ms - 21[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m2.033 ms - 21[0m
+[0mGET //admin/ [33m404 [0m1.886 ms - 21[0m
+[0mPOST / [32m200 [0m3.477 ms - 11[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m1.206 ms - 21[0m
+[0mGET / [33m404 [0m2.464 ms - 21[0m
+[0mPOST / [32m200 [0m10.306 ms - 11[0m
+[0mGET //maint/ [33m404 [0m2.038 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.382 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.796 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.947 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.617 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.934 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.261 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.228 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.294 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.685 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m8.250 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m9.030 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m16.492 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m7.505 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m8.015 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.852 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.671 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.764 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.543 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.632 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m2.368 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.766 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m4.988 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m2.394 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.007 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m2.205 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.966 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.198 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m4.506 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.211 ms - 11[0m
+[0mGET /admin/i18n/readme.txt [33m404 [0m1.353 ms - 21[0m
+[0mGET /admin/i18n/readme.txt [33m404 [0m0.438 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m3.368 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m0.486 ms - 21[0m
+[0mGET / [33m404 [0m3.208 ms - 21[0m
+[0mGET /admin/cdr/ [33m404 [0m3.185 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.600 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.209 ms - 11[0m
+[0mGET // [33m404 [0m2.091 ms - 21[0m
+[0mGET //webfig/ [33m404 [0m1.283 ms - 21[0m
+[0mGET / [33m404 [0m1.588 ms - 21[0m
+[0mGET / [33m404 [0m2.428 ms - 21[0m
+[0mGET //webfig/ [33m404 [0m2.169 ms - 21[0m
+[0mGET / [33m404 [0m2.504 ms - 21[0m
+[0mGET /recordings/misc/ [33m404 [0m1.911 ms - 21[0m
+[0mGET / [33m404 [0m2.531 ms - 21[0m
+[0mGET //recordings/theme/layout.css [33m404 [0m2.260 ms - 21[0m
+[0mGET //a2billing/customer/templates/default/header.tpl [33m404 [0m2.762 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m7.456 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.635 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.560 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.084 ms - 11[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m1.660 ms - 21[0m
+[0mGET / [33m404 [0m3.315 ms - 21[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m3.850 ms - 21[0m
+[0mGET //admin/config.php [33m404 [0m4.318 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m8.840 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.232 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.325 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m5.464 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m6.420 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.424 ms - 11[0m
+[0mPOST / [32m200 [0m10.690 ms - 11[0m
+[0mPOST / [32m200 [0m0.457 ms - 11[0m
+[0mPOST / [32m200 [0m0.519 ms - 11[0m
+[0mPOST / [32m200 [0m1.423 ms - 11[0m
+[0mGET / [33m404 [0m2.009 ms - 21[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m0.943 ms - 21[0m
+[0mGET //vtigercrm/vtigerservice.php [33m404 [0m4.856 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.623 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.009 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.959 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.614 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.362 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.953 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.776 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.954 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.027 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.650 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.589 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.264 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.871 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.810 ms - 11[0m
+[0mGET / [33m404 [0m1.152 ms - 21[0m
+[0mGET //a2billing/admin/Public/index.php [33m404 [0m0.919 ms - 21[0m
+[0mGET //vtigercrm/vtigerservice.php [33m404 [0m0.455 ms - 21[0m
+[0mGET //vtigercrm/emad.php [33m404 [0m0.360 ms - 21[0m
+[0mGET //recordings/misc/callme_page.php [33m404 [0m0.349 ms - 21[0m
+[0mPOST /conferences/add [32m200 [0m4.622 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m3.023 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m6.090 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m6.448 ms - 11[0m
+[0mGET /admin/i18n/readme.txt [33m404 [0m1.344 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m1.475 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m9.661 ms - 11[0m
+[0mGET /admin/i18n/readme.txt [33m404 [0m2.437 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m1.546 ms - 21[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.928 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.503 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.277 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.674 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.532 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.887 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.649 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.165 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.738 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.027 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.916 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.134 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.205 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.667 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.088 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.369 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m15.934 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.856 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.375 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.559 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.686 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.166 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.587 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.253 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m9.474 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.391 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.745 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.698 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.355 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.742 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.043 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.918 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.233 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.213 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.035 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.633 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.487 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.286 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.182 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m6.394 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.480 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.216 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m5.594 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m7.754 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.558 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m7.178 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.616 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.073 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.786 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.523 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.426 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.427 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.096 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m4.657 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.551 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.945 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.971 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m4.410 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m1.933 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m2.291 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m8.169 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m3.048 ms - 11[0m
+Ca va append
+[0mPOST /conferences/add [32m200 [0m12.190 ms - 11[0m
+[0mGET /vtigercrm/vtigerservice.php [33m404 [0m1.347 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m1.687 ms - 21[0m
+[0mGET / [33m404 [0m2.481 ms - 21[0m
+[0mGET /admin/i18n/readme.txt [33m404 [0m1.200 ms - 21[0m
+[0mGET / [33m404 [0m0.921 ms - 21[0m
+[0mGET /vtigercrm/vtigerservice.php [33m404 [0m2.008 ms - 21[0m
+[0mGET /a2billing/admin/Public/index.php [33m404 [0m0.392 ms - 21[0m
+[0mPOST /conferences/add [32m200 [0m3.639 ms - 11[0m
+[0mPOST /conferences/add [32m200 [0m1.732 ms - 11[0m

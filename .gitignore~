@@ -1,0 +1,10 @@
+**/parameters.dev.yaml
+**/parameters.dev.yml
+**/parameters.prod.yaml
+**/parameters.prod.yml
+**/config.dev.yaml
+**/config.dev.yml
+**/cache
+**/vendor
+**/node_modules
+**/logs
