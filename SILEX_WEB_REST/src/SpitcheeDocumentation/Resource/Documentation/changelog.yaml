@@ -1,18 +1,18 @@
 # faire en DESC date
 
 changelogs:
-  - version: 0.0.4
+  - version: 0.2.2
     name: Karen
     date: 04/09/16
     done:
       - Les messages d'erreurs dans certains cas sont plus précis qu'avant.
-  - version: 0.0.3
+  - version: 0.2.1
     name: r
     date: 26/08/16
     done:
       - L'action Rabbit 'OnCallNbUsers' a été jugé deprecated car elle n'envoie pas assez d'infos. Elle reste présente pour l'instant
       - Une nouvelle action Rabbit a vue le jour, 'OnCallUsers', fiez-vous à la doc de celle-ci pour plus d'infos.
-  - version: 0.0.2
+  - version: 0.2.0
     name:
     date: 18/07/16
     done:
@@ -21,10 +21,9 @@ changelogs:
       - Le nombre de routes a triplé ainsi que le contenu de la conférence chronolique, que je vous invite à lire
       - Rabbit est maintenant implémenté
       - On peut maintenant réellement vivre une conférence, sauf pour la partie finale (delete cleanage etc)
-      - L'ensemble du code PHP a été revu et retravaillé mais vous vous en battez les couilles
       - Ajout des backlogs dans la doc
 
-  - version: 0.0.1
+  - version: 0.1.0
     name: ned stark meurt
     date: 07/07/16
     done:
@@ -45,8 +44,6 @@ changelogs:
     done:
       - Merci Pri pour l'idée révolutionnaire et innovante
     date: Jadis
-
-
 
 
 
