@@ -7,6 +7,10 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Container;
 
+/**
+ * Class SpitcheeServicesProvider
+ * @package Spitchee\Service\Provider
+ */
 class SpitcheeServicesProvider implements ServiceProviderInterface
 {
     /**

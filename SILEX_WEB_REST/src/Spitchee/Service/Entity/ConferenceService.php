@@ -11,8 +11,18 @@ use Spitchee\Util\Operation\OperationFailure;
 use Spitchee\Util\Operation\OperationResult;
 use Spitchee\Util\Operation\OperationSuccess;
 
+/**
+ * Class ConferenceService
+ * @package Spitchee\Service\Entity
+ */
 class ConferenceService extends BaseEntityService
 {
+    /**
+     * @param User $confMaster
+     * @param User $speaker
+     * @param bool $save
+     * @return Conference
+     */
     public function createActiveConference(User $confMaster, User $speaker, $save = true)
     {
         $conf = new Conference($this->genSmallUuid(), $confMaster, $speaker);
@@ -113,6 +123,11 @@ class ConferenceService extends BaseEntityService
         return OperationSuccess::create();
     }
 
+    /**
+     * @param Conference $conference
+     * @param User $user
+     * @return OperationFailure|OperationResult
+     */
     public function callIntoConference(Conference $conference, User $user)
     {
         if (Conference::STATE_ACTIVE !== $conference->getState()) {
@@ -146,6 +161,9 @@ class ConferenceService extends BaseEntityService
     }
 
 
+    /**
+     * @return string
+     */
     private function genSmallUuid() {
         $id = substr(Uuid::uuid4(), 0, 8);
 

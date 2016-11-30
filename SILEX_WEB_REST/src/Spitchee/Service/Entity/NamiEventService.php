@@ -5,8 +5,16 @@ namespace Spitchee\Service\Entity;
 use Spitchee\Service\Asterisk\Event\AsteriskEventListenerLocator;
 use Spitchee\Service\Generic\BaseEntityService;
 
+/**
+ * Class NamiEventService
+ * @package Spitchee\Service\Entity
+ */
 class NamiEventService extends BaseEntityService
 {
+    /**
+     * @param $eventArray
+     * @return null
+     */
     public function handleNewEvent($eventArray) {
         if (false === $this->validateBrutEvent($eventArray)) {
             //return false;
@@ -29,6 +37,10 @@ class NamiEventService extends BaseEntityService
         return $event;
     }
 
+    /**
+     * @param $eventArray
+     * @return bool
+     */
     private function validateBrutEvent($eventArray) {
         return isset($eventArray['event']);
     }

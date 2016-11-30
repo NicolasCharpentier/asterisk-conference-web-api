@@ -5,6 +5,10 @@ namespace Spitchee\Service\Asterisk\Event;
 use Container;
 use Spitchee\Service\Asterisk\Event\Listener\AsteriskEventListenerService;
 
+/**
+ * Class AsteriskEventListenerLocator
+ * @package Spitchee\Service\Asterisk\Event
+ */
 class AsteriskEventListenerLocator
 {
     /**

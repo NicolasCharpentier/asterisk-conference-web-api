@@ -12,6 +12,10 @@ use Spitchee\Entity\User;
 use Spitchee\Util\Rabbit\RabbitClient;
 use Spitchee\Util\Type\ArrayUtil;
 
+/**
+ * Class RabbitPublisherService
+ * @package Spitchee\Service\Rabbit
+ */
 class RabbitPublisherService
 {
     const LECTURER_KEY  = 'lecturer';
@@ -39,21 +43,38 @@ class RabbitPublisherService
         );
     }
 
+    /**
+     * @param Conference $conference
+     * @param User $user
+     */
     public function publishCallDecline(Conference $conference, User $user)
     {
         $this->publish($user->toArray(), $conference, self::TYPE_CALL_DECLINE);
     }
 
+    /**
+     * @param Conference $conference
+     * @param User $user
+     */
     public function publishCallUsersIncrement(Conference $conference, User $user)
     {
         $this->publishCallUsersQuantityChangement($conference, $user, +1);
+        $this->publishCallUsersChangement($conference, $user, +1);
     }
 
+    /**
+     * @param Conference $conference
+     * @param User $user
+     */
     public function publishCallUsersDecrement(Conference $conference, User $user)
     {
         $this->publishCallUsersQuantityChangement($conference, $user, -1);
+        $this->publishCallUsersChangement($conference, $user, -1);
     }
 
+    /**
+     * @param Conference $conference
+     */
     public function publishConferenceState(Conference $conference)
     {
         $this->publish([
@@ -61,6 +82,10 @@ class RabbitPublisherService
         ], $conference, self::TYPE_CONFERENCE_STATE);
     }
 
+    /**
+     * @param Conference $conference
+     * @param $warn
+     */
     public function publishWarning(Conference $conference, $warn)
     {
         $this->publish([
@@ -68,7 +93,11 @@ class RabbitPublisherService
         ], $conference, self::TYPE_WARNING);
     }
 
-  //public function publishAsks(Conference $conference, Collection $users)
+    /**
+     * @param Conference $conference
+     * @param UserRepository $userRepository
+     * @param User|null $exceptThisOne
+     */
     public function publishAsks(Conference $conference, UserRepository $userRepository, User $exceptThisOne = null)
     {
         // v1
@@ -101,7 +130,14 @@ class RabbitPublisherService
         }, $toSendUsers), $conference, self::TYPE_ASKS, self::PUBLIC_KEY);
     }
 
-    // Son message à elle est deprecated mais pas celui qu'elle appelle
+    /**
+     * @deprecated
+     * TODO Supprimer en 2.0
+     *
+     * @param Conference $conference
+     * @param User $user
+     * @param $way
+     */
     private function publishCallUsersQuantityChangement(Conference $conference, User $user, $way)
     {
         $this->publish([
@@ -109,10 +145,14 @@ class RabbitPublisherService
             'nbUsers' => $conference->countOnCallAgoraUsers(),
             'way'  => $way,
         ], $conference, self::TYPE_USER_QTY_CHANGE);
-
-        $this->publishCallUsersChangement($conference, $user, $way);
     }
 
+    /**
+     *
+     * @param Conference $conference
+     * @param User $user
+     * @param $way
+     */
     private function publishCallUsersChangement(Conference $conference, User $user, $way)
     {
         $onCallUsers = $conference->getOncallUsers(User::ROLE_PUBLIC)->map(function (User $user) {
@@ -126,6 +166,12 @@ class RabbitPublisherService
         ], $conference, self::TYPE_ON_CALL_USERS);
     }
 
+    /**
+     * @param $arrayData
+     * @param Conference $conference
+     * @param $type
+     * @param string $target
+     */
     private function publish($arrayData, Conference $conference, $type, $target = self::LECTURER_KEY)
     {
         $this->client->publish(
@@ -134,6 +180,9 @@ class RabbitPublisherService
         );
     }
 
+    /**
+     * @param $bullshit
+     */
     public function publishBullshit($bullshit)
     {
         $this->client->publish(new AMQPMessage($bullshit), 'no.more.the.war.KAREN');

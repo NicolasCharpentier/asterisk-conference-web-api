@@ -5,6 +5,10 @@ namespace Spitchee\Service\Asterisk\Event;
 use Container;
 use Spitchee\Entity\NamiEvent;
 
+/**
+ * Class AsteriskEventConsequencesService
+ * @package Spitchee\Service\Asterisk\Event
+ */
 class AsteriskEventConsequencesService
 {
     /** @var \Monolog\Logger $logger */
@@ -17,12 +21,20 @@ class AsteriskEventConsequencesService
     /** @var NamiEvent $event */
     private $event;
 
+    /**
+     * AsteriskEventConsequencesService constructor.
+     * @param Container $container
+     */
     public function __construct(Container $container)
     {
         $this->logger = $container->getLogger();
         $this->consequences = array();
     }
 
+    /**
+     * @param $consequence
+     * @return $this
+     */
     public function addConsequence($consequence)
     {
         $this->consequences[] = $consequence;
@@ -30,6 +42,10 @@ class AsteriskEventConsequencesService
         return $this;
     }
 
+    /**
+     * @param NamiEvent|null $event
+     * @return $this
+     */
     public function setCause(NamiEvent $event = null)
     {
         $this->event = $event;

@@ -21,7 +21,7 @@ class UserController extends BaseController
     public function tempRegisterSpeakerAction()
     {
         if (null !== $this->getUser()) {
-            return $this->error('Tu es deja co fdp', 403);
+            return $this->error('Tu es deja co', 403);
         }
 
         if (null === $id = $this->getPostArg('id', null)) {

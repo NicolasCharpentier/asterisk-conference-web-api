@@ -104,7 +104,7 @@ class UserRepository extends BaseRepository
      * @param mixed $id
      * @param null $lockMode
      * @param null $lockVersion
-     * @return null|User
+     * @return object
      */
     public function find($id, $lockMode = null, $lockVersion = null)
     {

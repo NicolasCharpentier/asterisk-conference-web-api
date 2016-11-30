@@ -9,21 +9,25 @@ use Spitchee\Entity\User;
 use Spitchee\Service\Asterisk\Event\AsteriskEventsDefinitionService;
 use Spitchee\Service\Generic\ContainerAwareService;
 
+/**
+ * Class AsteriskConfBridgeEventListenerService
+ * @package Spitchee\Service\Asterisk\Event\Listener
+ */
 class AsteriskConfBridgeEventListenerService extends ContainerAwareService implements AsteriskEventListenerService
 {
     /**
-     * On ne set le activeChannel uniquement depuis ici car l'event ConfbridgeJoin arrive environ 
+     * On ne set le activeChannel uniquement depuis ici car l'event ConfbridgeJoin arrive environ
      * 10-15 secondes après le originate / confbridgeStart. Ce qui fais que les actions via un channel
      * comme un kick ou un mute, agencées dans ce laps de temps, n'auront aucun effet sur la conference
      * MAIS pour Asterisk si, ce qui fait que les actions ne seront pas réutilisables.
-     * 
-     * En gros chaque action concernant un channel pendant ce laps de temps, ne fonctionnera pas 
-     * malgrés un success recu, et surtout empechera leur re-utilisation, car Asterisk croira 
-     * qu'elles ont déjà été faites (genre on ne peut pas kick un user deja kick). 
+     *
+     * En gros chaque action concernant un channel pendant ce laps de temps, ne fonctionnera pas
+     * malgrés un success recu, et surtout empechera leur re-utilisation, car Asterisk croira
+     * qu'elles ont déjà été faites (genre on ne peut pas kick un user deja kick).
+     *
+     * @param $eventArray
+     * @return mixed|NamiEvent
      */
-    
-    
-    
     public function processEvent($eventArray)
     {
         $namiEvent = new NamiEvent($eventArray['event'], $eventArray);
@@ -45,20 +49,26 @@ class AsteriskConfBridgeEventListenerService extends ContainerAwareService imple
                 $this->handleStarting($namiEvent);
                 break;
             default:
-                throw new \LogicException("The fuck");
+                throw new \LogicException("Confbridge event {$eventArray['event']} ne devrait pas arriver ici");
         }
 
         $this->getContainer()->getEntityManager()->persist($conference);
         
         return $namiEvent;
     }
-    
+
+    /**
+     * @param NamiEvent $event
+     */
     private function handleEnding(NamiEvent $event) {
         $event->getRelatedConference()->setState(Conference::STATE_INACTIVE);
 
         $this->getRabbitPublisherService()->publishConferenceState($event->getRelatedConference());
     }
-    
+
+    /**
+     * @param NamiEvent $event
+     */
     private function handleJoining(NamiEvent $event) {
         $this->registerSipAccountOnChannelPresence($event);
 
@@ -77,6 +87,9 @@ class AsteriskConfBridgeEventListenerService extends ContainerAwareService imple
         $this->getRabbitPublisherService()->publishCallUsersIncrement($event->getRelatedConference(), $user);
     }
 
+    /**
+     * @param NamiEvent $event
+     */
     private function handleLeaving(NamiEvent $event) {
         $this->registerSipAccountOnChannelPresence($event);
 
@@ -91,6 +104,9 @@ class AsteriskConfBridgeEventListenerService extends ContainerAwareService imple
         $this->getRabbitPublisherService()->publishCallUsersDecrement($event->getRelatedConference(), $user);
     }
 
+    /**
+     * @param NamiEvent $event
+     */
     private function handleStarting(NamiEvent $event) {
         $conference = $event->getRelatedConference();
         $conference->setState(Conference::STATE_ACTIVE);
@@ -99,6 +115,9 @@ class AsteriskConfBridgeEventListenerService extends ContainerAwareService imple
         $this->getRabbitPublisherService()->publishConferenceState($conference);
     }
 
+    /**
+     * @param NamiEvent $event
+     */
     private function registerSipAccountOnChannelPresence(NamiEvent $event) {
         $channel = $event->getInformation()->channel;
         $sipAcId = str_replace('SIP/', '', $channel);
@@ -118,6 +137,9 @@ class AsteriskConfBridgeEventListenerService extends ContainerAwareService imple
         $this->getContainer()->getEntityManager()->persist($sipAccount);
     }
 
+    /**
+     * @return \Spitchee\Service\Rabbit\RabbitPublisherService
+     */
     private function getRabbitPublisherService()
     {
         return $this->getContainer()->getRabbitPublisherService();

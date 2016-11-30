@@ -14,6 +14,10 @@ use Spitchee\Util\Operation\OperationFailure;
 use Spitchee\Util\Operation\OperationResult;
 use Spitchee\Util\Operation\OperationSuccess;
 
+/**
+ * Class AsteriskServicesAskerService
+ * @package Spitchee\Service\Asterisk
+ */
 class AsteriskServicesAskerService
 {
     /** @var Logger $logger */
@@ -28,11 +32,16 @@ class AsteriskServicesAskerService
     /** @var AsteriskEventConsequencesService $eventConsequencesService */
     private $eventConsequencesService;
 
+    /** @var bool $loggingEnabled */
     private $loggingEnabled;
 
     const TYPE_SU   = 'SU';
     const TYPE_NAMI = 'NAMI';
 
+    /**
+     * AsteriskServicesAskerService constructor.
+     * @param Container $app
+     */
     public function __construct(Container $app)
     {
         $this->namiUrl  = $app['config']['services']['nami'];
@@ -43,7 +52,12 @@ class AsteriskServicesAskerService
         $this->loggingEnabled           = false;
     }
 
-    /** @return OperationResult */
+    /**
+     * @param $action
+     * @param $type
+     * @param $response
+     * @return OperationResult
+     */
     private function analyzeAndReturnResponse($action, $type, $response)
     {
         $success   = $response === false ? false : $response->ok;
@@ -60,7 +74,12 @@ class AsteriskServicesAskerService
             ? OperationSuccess::create()
             : OperationFailure::fromServer("$resume");
     }
-    
+
+    /**
+     * @param Conference $conference
+     * @param SipAccount $user
+     * @return OperationResult
+     */
     public function registerToConference(Conference $conference, SipAccount $user) {
         return $this->analyzeAndReturnResponse('registerToConference', self::TYPE_SU, $this
             ->getSuClient()
@@ -68,7 +87,12 @@ class AsteriskServicesAskerService
             ->getResponse()
         );
     }
-    
+
+    /**
+     * @param Conference $conference
+     * @param SipAccount $sipAccount
+     * @return OperationResult
+     */
     public function originate(Conference $conference, SipAccount $sipAccount) {
         return $this->analyzeAndReturnResponse('originate', self::TYPE_NAMI, $this
             ->getNamiClient()
@@ -76,7 +100,12 @@ class AsteriskServicesAskerService
             ->getResponse()
         );
     }
-    
+
+    /**
+     * @param Conference $conference
+     * @param $channel
+     * @return OperationResult
+     */
     public function kickFromConference(Conference $conference, $channel) {
         return $this->analyzeAndReturnResponse('kickFromConference', self::TYPE_NAMI, $this
             ->getNamiClient()
@@ -84,7 +113,10 @@ class AsteriskServicesAskerService
             ->getResponse()
         );
     }
-    
+
+    /**
+     * @return OperationResult
+     */
     public function sipReload() {
         return $this->analyzeAndReturnResponse('sipReload', self::TYPE_NAMI, $this
             ->getNamiClient()
@@ -93,6 +125,9 @@ class AsteriskServicesAskerService
         );
     }
 
+    /**
+     * @return OperationResult
+     */
     public function testSipClient() {
         return $this->analyzeAndReturnResponse('testSipClient', self::TYPE_SU, $this
             ->getSuClient()
@@ -100,15 +135,24 @@ class AsteriskServicesAskerService
             ->getResponse()
         );
     }
-    
+
+    /**
+     * @return NamiClient
+     */
     private function getNamiClient() {
         return new NamiClient($this->namiUrl, 3);
     }
-    
+
+    /**
+     * @return SuClient
+     */
     private function getSuClient() {
         return new SuClient($this->suUrl, 3);
     }
 
+    /**
+     * @return $this
+     */
     public function enableLogging() {
         $this->loggingEnabled = true;
         return $this;

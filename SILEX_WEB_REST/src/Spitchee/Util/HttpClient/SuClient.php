@@ -3,6 +3,10 @@
 namespace Spitchee\Util\HttpClient;
 
 
+/**
+ * Class SuClient
+ * @package Spitchee\Util\HttpClient
+ */
 class SuClient extends CurlClient
 {
     const URL_ADD_TO_CONFERENCE = '/conferences/add';
@@ -24,6 +28,12 @@ class SuClient extends CurlClient
         return $this;
     }
 
+    /**
+     * @param $conferenceId
+     * @param $sipId
+     * @param $sipSecret
+     * @return CurlClient
+     */
     public function registerToConference($conferenceId, $sipId, $sipSecret)
     {
         return $this->fluidJsonPost($this->serviceUrl . self::URL_ADD_TO_CONFERENCE, [
@@ -35,6 +45,9 @@ class SuClient extends CurlClient
         ]);
     }
 
+    /**
+     * @return $this
+     */
     public function testConnection()
     {
         return $this->fluidPost($this->serviceUrl . self::URL_TEST_CONNECTION);

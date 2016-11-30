@@ -7,8 +7,17 @@ use Spitchee\Entity\SipAccount;
 use Spitchee\Entity\User;
 use Spitchee\Service\Generic\BaseEntityService;
 
+/**
+ * Class SipAccountService
+ * @package Spitchee\Service\Entity
+ */
 class SipAccountService extends BaseEntityService
 {
+    /**
+     * @param User $user
+     * @param bool $save
+     * @return SipAccount
+     */
     public function createSipAccount(User $user, $save = true) {
         list($sipId, $sipPass) = $this->createSipIdentifiers();
 
@@ -27,6 +36,9 @@ class SipAccountService extends BaseEntityService
         return $sipAccount;
     }
 
+    /**
+     * @param SipAccount $sipAccount
+     */
     private function removeSipAccount(SipAccount $sipAccount)
     {
         $relatedEvents = $this->getContainer()->getRepositoryService()->getNamiEventRepository()->findBy([
@@ -41,6 +53,9 @@ class SipAccountService extends BaseEntityService
         $this->flush();
     }
 
+    /**
+     * @return array
+     */
     private function createSipIdentifiers() {
         while ($sipId = random_int(1015, 9999)) {
             if (null === $this->getContainer()->getRepositoryService()->getSipAccountRepository()->find($sipId)) {

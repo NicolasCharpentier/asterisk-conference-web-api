@@ -10,8 +10,16 @@ use Spitchee\Service\Asterisk\Event\AsteriskEventsDefinitionService;
 use Spitchee\Service\Generic\ContainerAwareService;
 use Spitchee\Service\Rabbit\RabbitPublisherService;
 
+/**
+ * Class AsteriskPeerStatusEventListenerService
+ * @package Spitchee\Service\Asterisk\Event\Listener
+ */
 class AsteriskPeerStatusEventListenerService extends ContainerAwareService implements AsteriskEventListenerService
 {
+    /**
+     * @param $eventArray
+     * @return null|NamiEvent
+     */
     public function processEvent($eventArray) {
         $peerId = str_replace('SIP/', '', $eventArray['peer']);
         $sipAccount = $this->getContainer()->getRepositoryService()->getSipAccountRepository()->find($peerId);
@@ -47,7 +55,12 @@ class AsteriskPeerStatusEventListenerService extends ContainerAwareService imple
 
         return $event;
     }
-    
+
+    /**
+     * @param SipAccount $sipAccount
+     * @param $newStatus
+     * @return SipAccount
+     */
     private function handleSipAccountEffects(SipAccount $sipAccount, $newStatus)
     {
         // Registered || Unregistered || Lagged|Reachable|Unreachable
@@ -63,7 +76,11 @@ class AsteriskPeerStatusEventListenerService extends ContainerAwareService imple
         
         return $sipAccount;
     }
-    
+
+    /**
+     * @param SipAccount $sipAccount
+     * @return Conference
+     */
     private function handleConferenceEffects(SipAccount $sipAccount)
     {
         $user = $sipAccount->getUser();

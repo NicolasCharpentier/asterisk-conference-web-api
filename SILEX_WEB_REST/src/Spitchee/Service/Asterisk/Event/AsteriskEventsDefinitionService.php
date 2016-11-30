@@ -2,6 +2,10 @@
 
 namespace Spitchee\Service\Asterisk\Event;
 
+/**
+ * Class AsteriskEventsDefinitionService
+ * @package Spitchee\Service\Asterisk\Event
+ */
 class AsteriskEventsDefinitionService
 {
     // Prefixe des types non présents ici
@@ -30,8 +34,12 @@ class AsteriskEventsDefinitionService
     const TYPE_NEW_CHANNEL      = 'Newchannel';
     const TYPE_NEW_STATE        = 'Newstate';
     const TYPE_DTMF             = 'DTMF'; // Pressage des touches
-    
-    
+
+
+    /**
+     * @param $type
+     * @return bool
+     */
     static public function isNotWantedType($type) {
         return in_array($type, [
             self::TYPE_EXTENSION_STATUS,
@@ -46,14 +54,22 @@ class AsteriskEventsDefinitionService
             self::TYPE_DTMF,
         ]);
     }
-    
+
+    /**
+     * @param $type
+     * @return bool
+     */
     static public function isGenericHandlingType($type) {
         return in_array($type, [
             self::TYPE_HANGUP,
             self::TYPE_FULLY_BOOTED,
         ]);
     }
-    
+
+    /**
+     * @param $type
+     * @return bool
+     */
     static public function isConfBridgeType($type) {
         return in_array($type, [
             self::TYPE_CONFBRIDGE_START,

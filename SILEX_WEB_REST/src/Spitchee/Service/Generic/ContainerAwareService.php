@@ -4,15 +4,26 @@ namespace Spitchee\Service\Generic;
 
 use Container;
 
+/**
+ * Class ContainerAwareService
+ * @package Spitchee\Service\Generic
+ */
 abstract class ContainerAwareService
 {
     private $container;
 
+    /**
+     * ContainerAwareService constructor.
+     * @param Container $app
+     */
     public function __construct(Container $app)
     {
         $this->container = $app;
     }
-    
+
+    /**
+     * @return Container
+     */
     protected function getContainer()
     {
         return $this->container;

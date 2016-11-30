@@ -12,6 +12,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class ConferenceController extends BaseController
 {
+    /**
+     * @param null $id
+     *
+     * @return null|Conference
+     */
     private function findConference($id = null)
     {
         if (null !== $id) {
@@ -34,7 +39,7 @@ class ConferenceController extends BaseController
 
     /**
      * Création d'une conference prête à démarrer
-     * 
+     *
      * @Path /active/create
      * @Method POST
      * @return \Symfony\Component\HttpFoundation\JsonResponse
@@ -43,18 +48,23 @@ class ConferenceController extends BaseController
     {
         $this->authRestrict(User::ROLE_CONFERENCIER);
 
-        $speaker    = $this->getUserService()->createTempUser(User::ROLE_HP, null, true, false);
+        $speaker = $this->getUserService()->createTempUser(
+            User::ROLE_HP, null, true, false
+        );
+
         $conference = $this->getConferenceService()->createActiveConference(
             $this->getUser(), $speaker
         );
 
-        $sipSubscription = $this->getConferenceService()->registerUserToSipConference($speaker, $conference);
+        $sipSubscription = $this->getConferenceService()->registerUserToSipConference(
+            $speaker, $conference
+        );
 
-        if (! $sipSubscription->isSuccessfull()) {
+        if (!$sipSubscription->isSuccessfull()) {
             // todo - remove la conference
             return $this->operationResult($sipSubscription);
         }
-        
+
         return $this->json([
             'conferenceId' => $conference->getUuid(),
             'speakerId' => $speaker->getUuid(),
@@ -63,7 +73,7 @@ class ConferenceController extends BaseController
 
     /**
      * Rejoindre une conférence
-     * 
+     *
      * @Path /active/{id}/subscribe
      * @Method POST
      * @param $id
@@ -79,7 +89,7 @@ class ConferenceController extends BaseController
 
         $subscription = $this->getConferenceService()->registerUserToSipConference($this->getUser(), $conference, true);
 
-        if (! $subscription->isSuccessfull())
+        if (!$subscription->isSuccessfull())
             return $this->operationResult($subscription);
 
         return $this->json($this->getUser()->toArray());
@@ -87,7 +97,7 @@ class ConferenceController extends BaseController
 
     /**
      * Virer un utilisateur d'un appel-conférence
-     * 
+     *
      * @Path /active/kick/{userId}
      * @Method POST
      * @param $userId
@@ -123,7 +133,7 @@ class ConferenceController extends BaseController
     public function startCallAction()
     {
         $this->authRestrict(User::ROLE_CONFERENCIER);
-        
+
         $conference = $this->findConference();
 
         return $this->operationResult(

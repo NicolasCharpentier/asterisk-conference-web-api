@@ -26,8 +26,12 @@ class SipAccountRepository extends BaseRepository
         
         return $qb;
     }
-    
-    public function findSipAccounts($args = array()) 
+
+    /**
+     * @param array $args
+     * @return array
+     */
+    public function findSipAccounts($args = array())
     {
         return $this->getQueryBuilder($args)->getQuery()->getResult();
     }

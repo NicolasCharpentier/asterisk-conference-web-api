@@ -35,14 +35,14 @@ class ApiDocController extends BaseController
         $args = $this->parsePostArgs(['bal', 'null']);
 
         if ($args['bal'] === 'derbal_y' and 'jeremy' === strtolower($args['null'])) {
-            return $app->redirect('/api/doc/top/secret/spitchee/spitcheer_seulement/va/trouver/cette/url/en/brute/force/fdp');
+            return $app->redirect('/api/doc/top/secret/spitchee/spitcheer_seulement/va/trouver/cette/url/en/brute/force/fd');
         }
 
         return $app->redirect('/api');
     }
 
     /**
-     * @Path /doc/top/secret/spitchee/spitcheer_seulement/va/trouver/cette/url/en/brute/force/fdp
+     * @Path /doc/top/secret/spitchee/spitcheer_seulement/va/trouver/cette/url/en/brute/force/fd
      * @param Container $app
      * @return Response
      */

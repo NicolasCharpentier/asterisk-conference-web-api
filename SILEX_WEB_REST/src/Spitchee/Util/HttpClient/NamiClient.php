@@ -2,6 +2,10 @@
 
 namespace Spitchee\Util\HttpClient;
 
+/**
+ * Class NamiClient
+ * @package Spitchee\Util\HttpClient
+ */
 class NamiClient extends CurlClient
 {
     const URL_SIP_RELOAD = '/nami/action/sip/reload';
@@ -25,10 +29,18 @@ class NamiClient extends CurlClient
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function sipReload() {
         return $this->fluidPost($this->serviceUrl . self::URL_SIP_RELOAD);
     }
-    
+
+    /**
+     * @param $confId
+     * @param $sipId
+     * @return $this
+     */
     public function originate($confId, $sipId)
     {
         return $this->fluidPost($this->buildURI($this->serviceUrl . self::URL_ORIGINATE, [
@@ -37,6 +49,11 @@ class NamiClient extends CurlClient
         ]));
     }
 
+    /**
+     * @param $confId
+     * @param $channelId
+     * @return $this
+     */
     public function kickFromConference($confId, $channelId)
     {
         return $this->fluidPost($this->buildURI($this->serviceUrl . self::URL_CONF_KICK, [
@@ -45,6 +62,9 @@ class NamiClient extends CurlClient
         ]));
     }
 
+    /**
+     * @return null
+     */
     public function getResponse() {
         return $this->response;    
     }

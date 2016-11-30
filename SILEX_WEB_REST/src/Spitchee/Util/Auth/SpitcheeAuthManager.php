@@ -7,8 +7,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
+/**
+ * Class SpitcheeAuthManager
+ * @package Spitchee\Util\Auth
+ */
 class SpitcheeAuthManager
 {
+    /**
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @param MessageDigestPasswordEncoder $securityEncoder
+     * @return null|\Spitchee\Entity\User
+     */
     public static function findAuthUser(Request $request, UserRepository $userRepository, MessageDigestPasswordEncoder $securityEncoder) {
         $identifier = $request->server->get('PHP_AUTH_USER', null);
         $password = $request->server->get('PHP_AUTH_PW', null);
@@ -31,6 +41,9 @@ class SpitcheeAuthManager
         return $user;
     }
 
+    /**
+     * @return Response
+     */
     public static function getDefaultBasicAuthDenyResponse() {
         $response = new Response();
         $response->headers->set('WWW-Authenticate', sprintf('Basic realm="%s"', 'Basic Login'));

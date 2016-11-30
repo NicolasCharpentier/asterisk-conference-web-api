@@ -9,6 +9,10 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 use Silex\Tests\Application\MonologApplication;
 
+/**
+ * Class RabbitClient
+ * @package Spitchee\Util\Rabbit
+ */
 class RabbitClient
 {
     const EXCHANGE_NAME = 'spitchee';
@@ -26,6 +30,11 @@ class RabbitClient
     /** @var AMQPStreamConnection $connection */
     private $connection;
 
+    /**
+     * RabbitClient constructor.
+     * @param $config
+     * @param Logger $logger
+     */
     public function __construct($config, Logger $logger)
     {
         $this->config = $config;
@@ -34,6 +43,9 @@ class RabbitClient
         $this->instanciate();
     }
 
+    /**
+     *
+     */
     private function instanciate()
     {
         $this->connection = new AMQPStreamConnection(
@@ -51,11 +63,18 @@ class RabbitClient
         );
     }
 
+    /**
+     * @param AMQPMessage $message
+     * @param $routingKey
+     */
     public function publish(AMQPMessage $message, $routingKey)
     {
         $this->channel->basic_publish($message, self::EXCHANGE_NAME, $routingKey);
     }
 
+    /**
+     *
+     */
     public function __destruct()
     {
         $this->channel->close();

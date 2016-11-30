@@ -31,7 +31,7 @@ class ConferenceRepository extends BaseRepository
     /**
      * @param array $criteria
      * @param array|null $orderBy
-     * @return null|Conference
+     * @return null|Conference|object
      */
     public function findOneBy(array $criteria, array $orderBy = null)
     {
@@ -42,7 +42,7 @@ class ConferenceRepository extends BaseRepository
      * @param mixed $id
      * @param null $lockMode
      * @param null $lockVersion
-     * @return null|Conference
+     * @return null|Conference|object
      */
     public function find($id, $lockMode = null, $lockVersion = null)
     {

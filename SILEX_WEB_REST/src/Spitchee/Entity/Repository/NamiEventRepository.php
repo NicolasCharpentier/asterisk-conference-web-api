@@ -68,6 +68,10 @@ class NamiEventRepository extends BaseRepository
         return $this->getQueryBuilder($args)->getQuery()->getResult();
     }
 
+    /**
+     * @param array $args
+     * @return array
+     */
     public function findNamiEventsAsArray($args = array())
     {
         $events = $this->findNamiEvents($args);

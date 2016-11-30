@@ -9,8 +9,16 @@ use Spitchee\Entity\User;
 use Spitchee\Service\Asterisk\Event\AsteriskEventsDefinitionService;
 use Spitchee\Service\Generic\ContainerAwareService;
 
+/**
+ * Class AsteriskOriginateResponseEventListenerService
+ * @package Spitchee\Service\Asterisk\Event\Listener
+ */
 class AsteriskOriginateResponseEventListenerService extends ContainerAwareService implements AsteriskEventListenerService
 {
+    /**
+     * @param $eventArray
+     * @return NamiEvent
+     */
     public function processEvent($eventArray)
     {
         $peerId = str_replace('SIP/', '', $eventArray['channel']);
